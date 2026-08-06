@@ -51,7 +51,7 @@ def main():
         # Reorder threshold logic based on safety buffer and lead time demand
         lead_time_demand = (p["Units Sold"] / 30.0) * p["Supplier Lead Time"]
         if p["Current Stock"] <= lead_time_demand + 5:  # buffer added for safety
-            print(f"⚠ ALERT: {p['Product Name']} needs reorder! Current Stock: {p['Current Stock']}")
+            print(f"ALERT: {p['Product Name']} needs reorder! Current Stock: {p['Current Stock']}")
 
     # 4. Compute inventory turnover ratio
     print("\n4. INVENTORY TURNOVER RATIO")
@@ -97,7 +97,7 @@ def main():
         writer.writeheader()
         for p in sorted_list:
             writer.writerow({k: p[k] for k in csv_headers})
-    print(f"[✔] Report saved successfully as '{CSV_FILE}'")
+    print(f"Report saved successfully as '{CSV_FILE}'")
     # 10. Read the CSV and display the top five profitable products
     print("\n10. READING CSV & DISPLAYING TOP 5 PROFITABLE PRODUCTS")
     if os.path.exists(CSV_FILE):
